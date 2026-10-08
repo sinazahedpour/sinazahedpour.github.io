@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سینا زاهدپور | مدیریت مالی و بازرگانی</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        /* --- FONTS DEFINITION --- */
+        @font-face {
+            font-family: 'BNazanin';
+            src: url('B-Nazanin.ttf') format('truetype');
+            font-weight: normal; font-style: normal;
+        }
+        @font-face {
+            font-family: 'BTitr';
+            src: url('B-Titr.ttf') format('truetype');
+            font-weight: normal; font-style: normal;
+        }
+
+        :root {
+            --navy: #0F172A;
+            --gold: #B4945B;
+            --gold-light: #D4AF37;
+            --bg-light: #F8FAFC;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'BNazanin', Tahoma, sans-serif;
+            font-size: 1.25rem;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .nav-link, .accent-font {
+            font-family: 'BTitr', Tahoma, sans-serif;
+        }
+
+        /* --- LAYOUT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0; z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+        }
+        nav ul { display: flex; justify-content: center; list-style: none; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { color: var(--white); text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--gold); }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 90vh;
+            background: linear-gradient(135deg, var(--navy) 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: ""; position: absolute; width: 200%; height: 200%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+        .profile-wrapper {
+            position: relative;
+            width: 200px; height: 200px;
+            margin: 0 auto 30px;
+        }
+        .profile-img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            object-fit: cover;
+        }
+        .qr-badge {
+            position: absolute; bottom: -10px; right: -10px;
+            background: white; padding: 5px; border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        #qrcode { width: 70px; height: 70px; }
+
+        header h1 { font-size: 4rem; letter-spacing: 2px; margin-bottom: 10px; color: var(--gold); }
+        header p { font-size: 1.8rem; font-weight: 300; color: #CBD5E1; }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 0; }
+        .section-title {
+            text-align: center; font-size: 2.8rem; color: var(--navy);
+            margin-bottom: 60px; position: relative;
+        }
+        .section-title::after {
+            content: ""; width: 60px; height: 3px; background: var(--gold);
+            position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+        }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::before {
+            content: ""; position: absolute; right: 50%; top: 0; bottom: 0;
+            width: 2px; background: var(--gold); transform: translateX(50%);
+        }
+        .timeline-item {
+            margin-bottom: 50px; width: 50%; position: relative; padding: 0 40px;
+        }
+        .timeline-item:nth-child(odd) { text-align: left; margin-right: 50%; }
+        .timeline-item:nth-child(even) { text-align: right; margin-right: 0; margin-left: 50%; }
+        
+        .timeline-item::after {
+            content: ""; position: absolute; width: 16px; height: 16px;
+            background: var(--gold); border-radius: 50%; top: 15px;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after { left: auto; right: -8px; }
+        .timeline-item:nth-child(even)::after { left: -8px; }
+
+        .card {
+            background: white; padding: 30px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--gold);
+            transition: 0.3s;
+        }
+        .timeline-item:nth-child(odd) .card { border-right: none; border-left: 5px solid var(--gold); }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--navy); font-size: 1.6rem; }
+        .card .date { color: var(--gold); font-weight: bold; margin-bottom: 10px; display: block; }
+
+        /* --- SKILLS GRID --- */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .skill-category {
+            background: var(--white); padding: 40px; border-radius: 15px;
+            text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .skill-category i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .skill-category h3 { margin-bottom: 20px; color: var(--navy); }
+        .skill-list { list-style: none; text-align: right; padding-right: 20px; }
+        .skill-list li { margin-bottom: 10px; position: relative; }
+        .skill-list li::before {
+            content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; right: -25px; color: var(--gold); font-size: 0.9rem;
+        }
+
+        /* --- ARTICLES --- */
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .article-card {
+            background: var(--white); border-radius: 15px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gold);
+        }
+        .article-content { padding: 30px; }
+        .article-content h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--navy); }
+        .article-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+
+        /* --- CONTACT --- */
+        .contact-section { background: var(--navy); color: white; border-radius: 30px; padding: 60px; text-align: center; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 40px; }
+        .contact-item i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
+        .contact-item p { font-size: 1.3rem; }
+
+        footer { background: #070b14; color: #475569; text-align: center; padding: 40px 0; border-top: 1px solid #1e293b; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .timeline::before { right: 20px; }
+            .timeline-item { width: 100%; text-align: right !important; margin-left: 0 !important; padding-right: 50px; }
+            .timeline-item::after { right: 12px !important; }
+            .timeline-item:nth-child(odd) .card { border-left: 5px solid var(--gold); border-right: none; }
+            .nav-link { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#home" class="nav-link">خانه</a></li>
+        <li><a href="#about" class="nav-link">درباره من</a></li>
+        <li><a href="#experience" class="nav-link">سوابق</a></li>
+        <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
+        <li><a href="#articles" class="nav-link">پژوهش‌ها</a></li>
+        <li><a href="#contact" class="nav-link">تماس</a></li>
+    </ul>
+</nav>
+
+<header id="home">
+    <div class="hero-content">
+        <div class="profile-wrapper">
+            <!-- عکس پروفایل شما -->
+            <img src="my-photo.jpg" alt="سینا زاهدپور" class="profile-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+            <div class="qr-badge">
+                <div id="qrcode"></div>
+            </div>
+        </div>
+        <h1>سینا زاهدپور</h1>
+        <p>مدیر مالی و اداری | متخصص امور گمرکی و بازرگانی</p>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section id="about">
+        <h2 class="section-title">درباره من</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>مدیر مالی با بیش از ۸ سال تجربه تخصصی در مدیریت استراتژیک مالی، بودجه‌بندی و تحلیل‌های اقتصادی. متخصص در هدایت فرآیندهای پیچیده مالیاتی و مدیریت عملیات واردات و صادرات با تمرکز بر بهینه‌سازی هزینه‌ها و رعایت دقیق قوانین گمرکی.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">سوابق حرفه‌ای</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="date">۱۳۹۸ - اکنون</span>
+                    <h3>مدیر مالی</h3>
+                    <p>شرکت سپهروز</p>
+                    <ul class="skill-list" style="margin-top:15px;">
+                        <li>مدیریت کلیه امور حسابداری صنعتی و مالی</li>
+                        <li>تهیه صورت‌های مالی و بهای تمام شده</li>
+                        <li>مدیریت سامانه مودیان و اظهارنامه‌های مالیاتی</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="date">۱۴۰۰ - اکنون</span>
+                    <h3>مشاور مالی و مالیاتی</h3>
+                    <p>شرکت گچ برگ آذربایجان</p>
+                    <ul class="skill-list" style="margin-top:15px;">
+                        <li>تهیه و تحلیل صورت های مالی</li>
+                        <li>مشاوره در امور سرمایه گذاری</li>
+                        <li>بررسی و تجزیه و تحلیل مخارج و درآمدها</li>
+                        <li>تهیه گزارشات مالی و مالیاتی</li>
+                    </ul>
+                </div>
+           </div>
+           <div class="timeline-item">
+                <div class="card">
+                    <span class="date">۱۴۰۰ - اکنون</span>
+                    <h3>مشاور مالی و مالیاتی</h3>
+                    <p>شرکت سایمان گچ آذربایجان</p>
+                    <ul class="skill-list" style="margin-top:15px;">
+                        <li>تحلیل استراتژیک سیستم‌های مالی</li>
+                        <li>استقرار بودجه‌بندی و پیش‌بینی‌های مالی</li>
+                        <li>مدیریت ارتباطات مالی با بانک ها و موسسات مالی</li>
+                        <li>تهیه گزارش های مالی و تجزیه و تحلیل آن ها</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="date">۱۳۹۸ - اکنون</span>
+                    <h3>حسابرسی</h3>
+                    <p>موسسه حسابرسی پارس</p>
+                    <p>بررسی و رسیدگی تخصصی به پرونده‌های حسابرسی و همکاری در ارائه گزارش‌های استاندارد.</p>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">توانمندی‌های کلیدی</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <i class="fas fa-chart-pie"></i>
+                <h3>تخصص‌های مالی</h3>
+                <ul class="skill-list">
+                    <li>حسابداری صنعتی و مدیریت</li>
+                    <li>بودجه‌بندی و پیش‌بینی</li>
+                    <li>تحلیل صورت‌های مالی</li>
+                    <li>کنترل داخلی و ریسک</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-ship"></i>
+                <h3>تجارت و گمرک</h3>
+                <ul class="skill-list">
+                    <li>مدیریت واردات و صادرات</li>
+                    <li>تشریفات گمرکی</li>
+                    <li>امور بانکی و ارزی</li>
+                    <li>مدیریت زنجیره تأمین</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-laptop-code"></i>
+                <h3>ابزارها و تکنولوژی</h3>
+                <ul class="skill-list">
+                    <li>Microsoft Excel (Advanced)</li>
+                    <li>Python & Stata (Basic)</li>
+                    <li>سیستم‌های حسابداری</li>
+                    <li>Microsoft Office Suite</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش پژوهش‌ها و مقالات -->
+<section id="research" class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 30px;">پژوهش‌ها و مقالات</h2>
+        <div class="research-grid" style="display: grid; gap: 20px;">
+            
+            <!-- مقاله ۱ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">تاثیر گزارشگری پایداری بر کارایی سرمایه گذاری</h3>
+                <p><strong>نویسندگان:</strong> سینا زاهدپور ، بیتا دلنواز ، وحید تقوی فرد</p>
+                <p><strong>همایش:</strong> بیست و یکمین همایش ملی حسابداری ایران و سومین همایش بین المللی حسابداری ایران (1402)</p>
+                <a href="https://civilica.com/doc/2206601/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۲ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">تاثیر کیفیت اطلاعات داخلی شرکت بر اثرات اهرم همتا</h3>
+                <p><strong>نویسندگان:</strong> سینا زاهدپور ، بیتا دلنواز</p>
+                <p><strong>همایش:</strong> بیست و یکمین همایش ملی حسابداری ایران و سومین همایش بین المللی حسابداری ایران (1402)</p>
+                <a href="https://civilica.com/doc/2206645/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۳ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">بررسی تاثیر رویکردهای اجتماعی هوش مصنوعی بر مسائل اخلاقی، قانونی و حاکمیتی</h3>
+                <p><strong>نویسندگان:</strong> سینا زاهدپور ، بیتا دلنواز ، مریم اسکندری اسفهلان ، بهنام رنجبر</p>
+                <p><strong>همایش:</strong> اولین همایش ملی اخلاق حرفه ای و مسئولیت پذیری اجتماعی در مدیریت و علوم مالی (1404)</p>
+                <a href="https://civilica.com/doc/2441776/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۴ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">بررسی رابطه بین بلوغ دیجیتال شرکت و میزان استفاده از هوش مصنوعی در حسابداری</h3>
+                <p><strong>نویسندگان:</strong> سینا زاهدپور ، بیتا دلنواز ، مریم اسکندری اسفهلان ، بهنام رنجبر</p>
+                <p><strong>همایش:</strong> اولین همایش ملی اخلاق حرفه ای و مسئولیت پذیری اجتماعی در مدیریت و علوم مالی (1404)</p>
+                <a href="https://civilica.com/doc/2441777/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۵ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">رابطه بین دیجیتالی سازی حسابرسی و هزینه های ریسک شرکت با نقش توسعه اقتصادی</h3>
+                <p><strong>نویسندگان:</strong> سینا زاهدپور ، بیتا دلنواز ، مریم اسکندری اسفهلان ، بهنام رنجبر</p>
+                <p><strong>همایش:</strong> اولین همایش ملی اخلاق حرفه ای و مسئولیت پذیری اجتماعی در مدیریت و علوم مالی (1404)</p>
+                <a href="https://civilica.com/doc/2441778/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۶ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">رابطه بین یارانه های دولتی و کیفیت حسابرسی با ساختار مالکیت شرکتها</h3>
+                <p><strong>نویسندگان:</strong> بهنام رنجبر ، بیتا دلنواز ، سینا زاهدپور</p>
+                <p><strong>همایش:</strong> اولین همایش ملی اخلاق حرفه ای و مسئولیت پذیری اجتماعی در مدیریت و علوم مالی (1404)</p>
+                <a href="https://civilica.com/doc/2441763/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+            <!-- مقاله ۷ -->
+            <div class="article-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                <h3 style="font-size: 1.2rem; color: #003366;">بررسی تاثیر سرمایه گذاری در بازاریابی بر اهرم مالی و کارایی سرمایه گذاری شرکت</h3>
+                <p><strong>نویسندگان:</strong> بهنام رنجبر ، بیتا دلنواز ، سینا زاهدپور</p>
+                <p><strong>همایش:</strong> اولین همایش ملی اخلاق حرفه ای و مسئولیت پذیری اجتماعی در مدیریت و علوم مالی (1404)</p>
+                <a href="https://civilica.com/doc/2441764/" target="_blank" style="color: #d4af37; font-weight: bold;">مشاهده و دانلود</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2 style="color: white;" class="section-title">ارتباط مستقیم</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>mrsina2015@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>۰۹۳۰۸۲۵۵۶۸۸</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-location-dot"></i>
+                    <p>تبریز، آذربایجان شرقی</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>طراحی شده برای سینا زاهدپور | متخصص مدیریت مالی و بازرگانی</p>
+</footer>
+
+<script>
+    // --- QR CODE GENERATION ---
+    // این کد QR شامل اطلاعات تماس شماست
+    var vCardData = "tel:09308255688,email:mrsina2015@gmail.com,text:Sina Zahedpour - Financial Manager";
+    
+    new QRCode(document.getElementById("qrcode"), {
+        text: vCardData,
+        width: 70,
+        height: 70,
+        colorDark : "#0F172A",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // --- SMOOTH SCROLLING ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
