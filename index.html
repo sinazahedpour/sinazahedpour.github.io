@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="سینا زاهدپور؛ ارائه خدمات حسابداری در تبریز، اجرای پرونده های مالیاتی و بیمه در تبریز و آموزش حسابداری در تبریز با تکیه بر تجربه تخصصی مالی و مالیاتی.">
-    <title>حسابداری در تبریز | سینا زاهدپور، خدمات مالی و بازرگانی</title>
+    <title>سینا زاهدپور | مدیریت مالی و بازرگانی</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -193,6 +192,54 @@
             .timeline-item:nth-child(odd) .card { border-left: 5px solid var(--gold); border-right: none; }
             .nav-link { font-size: 0.9rem; }
         }
+
+
+        /* --- ADDED BUSINESS SECTIONS --- */
+        html { scroll-padding-top: 90px; }
+        .eyebrow { color: var(--gold); font-weight: bold; text-align: center; margin: -35px 0 30px; }
+        .service-grid, .insight-grid, .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .service-card, .insight-card, .story-card {
+            background: var(--white); border-radius: 15px; padding: 30px;
+            box-shadow: 0 8px 28px rgba(15,23,42,.07); border: 1px solid #e8edf3;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .service-card:hover, .insight-card:hover, .story-card:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(15,23,42,.12); }
+        .service-card i, .insight-card i { color: var(--gold); font-size: 2.2rem; margin-bottom: 14px; }
+        .service-card h3, .insight-card h3, .story-card h3 { color: var(--navy); font-size: 1.45rem; margin-bottom: 10px; }
+        .service-card p, .insight-card p, .story-card p { color: var(--text-muted); }
+        .insights-section { background: #eef2f7; }
+        .insight-tag { display: inline-block; color: var(--navy); background: #f4ead6; border-radius: 30px; padding: 2px 12px; margin-bottom: 12px; font-size: .95rem; }
+        .story-card { border-top: 4px solid var(--gold); }
+        .story-metric { color: var(--gold); font-size: 2rem; font-weight: bold; display: block; margin-bottom: 5px; }
+        .contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; text-align: right; align-items: start; }
+        .contact-copy { padding: 15px 0; }
+        .contact-copy h3 { color: white; font-size: 1.6rem; margin: 20px 0 8px; }
+        .contact-copy p { color: #cbd5e1; }
+        .contact-form { background: white; color: var(--text-main); border-radius: 18px; padding: 30px; text-align: right; }
+        .contact-form h3 { color: var(--navy); margin-bottom: 6px; }
+        .form-note { color: var(--text-muted); font-size: .95rem; margin-bottom: 20px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+        .form-field.full { grid-column: 1 / -1; }
+        .form-field label { font-size: 1rem; font-weight: bold; color: var(--navy); }
+        .form-field input, .form-field select, .form-field textarea {
+            width: 100%; padding: 11px 13px; border: 1px solid #cbd5e1; border-radius: 8px;
+            font: inherit; font-size: 1rem; color: var(--text-main); background: #fff;
+        }
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+        .form-field textarea { min-height: 115px; resize: vertical; }
+        .submit-btn { border: 0; border-radius: 8px; padding: 11px 24px; background: var(--gold); color: var(--navy); font: inherit; font-weight: bold; cursor: pointer; transition: .2s; }
+        .submit-btn:hover { background: var(--gold-light); }
+        .form-status { min-height: 1.8em; color: #166534; margin-top: 10px; font-size: 1rem; }
+        @media (max-width: 900px) { nav ul { flex-wrap: wrap; row-gap: 4px; } nav ul li { margin: 0 10px; } }
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 24px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-field.full { grid-column: auto; }
+            .contact-section { padding: 35px 20px; }
+            .eyebrow { margin-top: -35px; }
+        }
+
     </style>
 </head>
 <body>
@@ -203,8 +250,11 @@
         <li><a href="#about" class="nav-link">درباره من</a></li>
         <li><a href="#experience" class="nav-link">سوابق</a></li>
         <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
-        <li><a href="#articles" class="nav-link">پژوهش‌ها</a></li>
-        <li><a href="#contact" class="nav-link">تماس</a></li>
+        <li><a href="#services" class="nav-link">خدمات</a></li>
+        <li><a href="#market-insights" class="nav-link">دیدگاه بازار</a></li>
+        <li><a href="#success-stories" class="nav-link">دستاوردها</a></li>
+        <li><a href="#research" class="nav-link">پژوهش‌ها</a></li>
+        <li><a href="#contact" class="nav-link">مشاوره</a></li>
     </ul>
 </nav>
 
@@ -227,7 +277,7 @@
     <section id="about">
         <h2 class="section-title">درباره من</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p>مدیر مالی با بیش از ۸ سال تجربه تخصصی در مدیریت استراتژیک مالی، بودجه‌بندی و تحلیل‌های اقتصادی. در زمینه حسابداری در تبریز، اجرای پرونده های مالیاتی و بیمه در تبریز و آموزش حسابداری در تبریز ،خدمات تخصصی ارائه می‌کنم. همچنین در هدایت فرآیندهای پیچیده مالیاتی و مدیریت عملیات واردات و صادرات، با تمرکز بر بهینه‌سازی هزینه‌ها و رعایت دقیق قوانین گمرکی، تجربه دارم.</p>
+            <p>مدیر مالی با بیش از ۸ سال تجربه تخصصی در مدیریت استراتژیک مالی، بودجه‌بندی و تحلیل‌های اقتصادی. متخصص در هدایت فرآیندهای پیچیده مالیاتی و مدیریت عملیات واردات و صادرات با تمرکز بر بهینه‌سازی هزینه‌ها و رعایت دقیق قوانین گمرکی.</p>
         </div>
     </section>
 
@@ -386,7 +436,68 @@
 </section>
 
 
+
+    <section id="services">
+        <h2 class="section-title">خدمات تخصصی</h2>
+        <p class="eyebrow">راهکارهای مالی و بازرگانی متناسب با نیاز کسب‌وکار شما</p>
+        <div class="service-grid">
+            <article class="service-card"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><h3>مشاوره مالی و مالیاتی</h3><p>بررسی وضعیت مالی، برنامه‌ریزی مالیاتی و پشتیبانی در تهیه و ارائه گزارش‌ها و اظهارنامه‌ها.</p></article>
+            <article class="service-card"><i class="fas fa-chart-line" aria-hidden="true"></i><h3>بودجه‌ریزی و تحلیل عملکرد</h3><p>طراحی بودجه، پیش‌بینی جریان نقدی و تحلیل انحراف‌ها برای تصمیم‌گیری دقیق‌تر مدیران.</p></article>
+            <article class="service-card"><i class="fas fa-ship" aria-hidden="true"></i><h3>امور گمرکی و بازرگانی</h3><p>راهنمایی در فرآیندهای واردات و صادرات، اسناد تجاری، تشریفات گمرکی و امور ارزی.</p></article>
+            <article class="service-card"><i class="fas fa-shield-alt" aria-hidden="true"></i><h3>کنترل داخلی و بهبود فرایند</h3><p>ارزیابی رویه‌های مالی، شناسایی ریسک‌ها و پیشنهاد اقدام‌های عملی برای ارتقای کنترل‌ها.</p></article>
+        </div>
+    </section>
+
+    <section id="market-insights" class="insights-section">
+        <h2 class="section-title">بینش‌های بازار</h2>
+        <p class="eyebrow">موضوعاتی برای رصد هوشمندانه‌تر محیط مالی و تجاری</p>
+        <div class="insight-grid">
+            <article class="insight-card"><span class="insight-tag">مالیات و مقررات</span><i class="fas fa-scale-balanced" aria-hidden="true"></i><h3>آمادگی مستمر برای الزامات مالیاتی</h3><p>نگهداری منظم اسناد، تطبیق داده‌های فروش و خرید و پایش اطلاعیه‌های رسمی، ریسک خطا و تأخیر را کاهش می‌دهد.</p></article>
+            <article class="insight-card"><span class="insight-tag">مدیریت مالی</span><i class="fas fa-water" aria-hidden="true"></i><h3>نقدینگی؛ شاخصی فراتر از سود</h3><p>پیش‌بینی جریان نقدی و مدیریت سرمایه در گردش به کسب‌وکار کمک می‌کند تعهدات کوتاه‌مدت را بهتر مدیریت کند.</p></article>
+            <article class="insight-card"><span class="insight-tag">بازرگانی</span><i class="fas fa-globe-asia" aria-hidden="true"></i><h3>هزینه تمام‌شده در تجارت خارجی</h3><p>ارزیابی هم‌زمان هزینه حمل، بیمه، عوارض و تغییرات نرخ ارز تصویر دقیق‌تری از بهای تمام‌شده واردات می‌دهد.</p></article>
+        </div>
+        <p style="text-align:center;color:var(--text-muted);font-size:.95rem;margin-top:22px;">محتوای این بخش جنبه اطلاع‌رسانی عمومی دارد و جایگزین بررسی مقررات جاری و مشاوره متناسب با هر پرونده نیست.</p>
+    </section>
+
+    <section id="success-stories">
+        <h2 class="section-title">نمونه دستاوردها</h2>
+        <p class="eyebrow">نمونه‌هایی از حوزه‌های اثرگذاری حرفه‌ای</p>
+        <div class="story-grid">
+            <article class="story-card"><span class="story-metric"><i class="fas fa-diagram-project" aria-hidden="true"></i></span><h3>سامان‌دهی گزارشگری مالی</h3><p>یکپارچه‌سازی فرایند تهیه گزارش‌ها و صورت‌های مالی برای افزایش شفافیت و دسترسی بهتر مدیران به اطلاعات.</p></article>
+            <article class="story-card"><span class="story-metric"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i></span><h3>تحلیل هزینه و بودجه</h3><p>به‌کارگیری تحلیل مخارج، درآمدها و انحراف بودجه به‌عنوان پشتوانه تصمیم‌های عملیاتی و برنامه‌ریزی.</p></article>
+            <article class="story-card"><span class="story-metric"><i class="fas fa-clipboard-check" aria-hidden="true"></i></span><h3>پشتیبانی از فرایندهای مالیاتی</h3><p>تمرکز بر نظم مستندات و پیگیری تکالیف مالیاتی برای بهبود آمادگی در رسیدگی‌ها و گزارش‌دهی.</p></article>
+        </div>
+        <p style="text-align:center;color:var(--text-muted);font-size:.95rem;margin-top:22px;">موارد بالا نمونه حوزه‌های کاری هستند؛ از درج ارقام یا نتایج تأییدنشده به‌عنوان آمار قطعی خودداری شده است.</p>
+    </section>
+
     <section id="contact">
+        <div class="contact-section">
+            <h2 style="color: white;" class="section-title">تماس و درخواست مشاوره</h2>
+            <div class="contact-layout">
+                <div class="contact-copy">
+                    <h3>برای گفت‌وگو درباره نیاز کسب‌وکارتان</h3>
+                    <p>موضوع موردنظر را از طریق فرم نمایشی ارسال کنید یا مستقیماً با راه‌های ارتباطی زیر تماس بگیرید.</p>
+                    <div class="contact-grid" style="grid-template-columns:1fr;gap:20px;text-align:right;">
+                        <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><p>mrsina2015@gmail.com</p></div>
+                        <div class="contact-item"><i class="fas fa-phone" aria-hidden="true"></i><p>۰۹۳۰۸۲۵۵۶۸۸</p></div>
+                        <div class="contact-item"><i class="fas fa-location-dot" aria-hidden="true"></i><p>تبریز، آذربایجان شرقی</p></div>
+                    </div>
+                </div>
+                <form class="contact-form" id="consultation-form" action="https://formspree.io/f/xoejwdvg" method="POST">
+                    <h3>درخواست جلسه مشاوره</h3>
+                    <p class="form-note">پس از ارسال فرم، نتیجه و وضعیت ارسال به شما نمایش داده می‌شود.</p>
+                    <div class="form-grid">
+                        <div class="form-field"><label for="full-name">نام و نام خانوادگی</label><input id="full-name" name="name" type="text" autocomplete="name" placeholder="نام شما" required></div>
+                        <div class="form-field"><label for="phone">شماره تماس</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="مثلاً ۰۹۱۲۱۲۳۴۵۶۷" required></div>
+                        <div class="form-field full"><label for="consult-topic">موضوع مشاوره</label><select id="consult-topic" name="topic" required><option value="" disabled selected>یک موضوع انتخاب کنید</option><option>مشاوره مالی و مالیاتی</option><option>بودجه‌ریزی و تحلیل مالی</option><option>امور گمرکی و بازرگانی</option><option>کنترل داخلی و سایر موارد</option></select></div>
+                        <div class="form-field full"><label for="message">شرح کوتاه درخواست</label><textarea id="message" name="message" placeholder="نیاز یا پرسش خود را بنویسید..."></textarea></div>
+                    </div>
+                    <button class="submit-btn" type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i> ثبت درخواست</button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
         <div class="contact-section">
             <h2 style="color: white;" class="section-title">ارتباط مستقیم</h2>
             <div class="contact-grid">
@@ -425,6 +536,7 @@
         colorLight : "#ffffff",
         correctLevel : QRCode.CorrectLevel.H
     });
+
 
     // --- SMOOTH SCROLLING ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
